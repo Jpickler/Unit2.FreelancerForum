@@ -33,28 +33,41 @@ myH4.textContent="name occupation starting price";
 document.body.append(myH4);
 
 const box1=document.createElement("div");
-box1.setAttribute("style", "width: 80%; height: 600px; border-style: solid; border-width: 3px; border-color: black;Display: block-inline");
+//box1.setAttribute("style", "width: 80%; height: 600px; border-style: solid; border-width: 3px; border-color: black;Display: flex");
+box1.setAttribute("style", "border-style: solid; border-width: 3px; border-color: black;Display: flex; justify-content: space-between");
+box1.setAttribute("id","box1");
 document.body.append(box1);
 
 const column1=document.createElement("div");
-document.body.appendChild(column1);
+column1.setAttribute("id","column1");
+box1.appendChild(column1);
 const column2=document.createElement("div");
-document.body.appendChild(column2);
+column2.setAttribute("id","column2");
+box1.appendChild(column2);
 const column3=document.createElement("div");
-document.body.appendChild(column3);
+column3.setAttribute("id","column3");
+box1.appendChild(column3);
 
 // freelancers.forEach(freelancer => {
   let names=[];
+  
   for(i=0;i<freelancers.length;i++){
     console.log(freelancers[i].name);
 
     names.push(freelancers[i].name);
 
     //create p inside columns
-    const p=document.createElement("p");
-    p.textContent=freelancers[i].name;
-    document.body.box1.column1.append(p);
+    const p1=document.createElement("p");
+    p1.textContent=freelancers[i].name;
+    column1.append(p1);
 
+    const p2=document.createElement("p");
+    p2.textContent=freelancers[i].price;
+    column2.append(p2);
+
+    const p3=document.createElement("p");
+    p3.textContent=freelancers[i].occupation;
+    column3.append(p3);
 
   };
   console.log(names);
