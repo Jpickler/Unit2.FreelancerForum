@@ -10,51 +10,53 @@ const freelancers = [
   { name: "Prof. Goose", price: 72, occupation: "driver" },
 ];
 
-//h1 Freelancer Forum
-//h3 The average starting price is 
-//h2 Available Freelancers
-//h4 name     occupation    starting price
-//array          info            here
 
 const myH1=document.createElement("h1");
 myH1.textContent="Freelancer Forum";
+myH1.setAttribute("style", "text-align: center");
 document.body.append(myH1);
 
 const myH3=document.createElement("h3");
 myH3.textContent="The average starting price is $";
+myH3.setAttribute("style", "text-align: center");
 document.body.append(myH3);
 
 const myH2=document.createElement("h2");
 myH2.textContent="Available Freelancers";
+myH2.setAttribute("style", "text-align: center");
 document.body.append(myH2);
 
-const myH4=document.createElement("h4");
-myH4.textContent="name occupation starting price";
-document.body.append(myH4);
-
 const box1=document.createElement("div");
-//box1.setAttribute("style", "width: 80%; height: 600px; border-style: solid; border-width: 3px; border-color: black;Display: flex");
 box1.setAttribute("style", "border-style: solid; border-width: 3px; border-color: black;Display: flex; justify-content: space-between");
 box1.setAttribute("id","box1");
 document.body.append(box1);
 
 const column1=document.createElement("div");
 column1.setAttribute("id","column1");
+column1.setAttribute("style", "margin-left: 10px");
 box1.appendChild(column1);
+    const col1Heading=document.createElement("h4");
+    col1Heading.textContent="Name";
+    column1.append(col1Heading);
 const column2=document.createElement("div");
 column2.setAttribute("id","column2");
 box1.appendChild(column2);
+    const col2Heading=document.createElement("h4");
+    col2Heading.textContent="Price";
+    column2.append(col2Heading);
 const column3=document.createElement("div");
 column3.setAttribute("id","column3");
+column3.setAttribute("style", "margin-right: 10px");
 box1.appendChild(column3);
+    const col3Heading=document.createElement("h4");
+    col3Heading.textContent="Occupation";
+    column3.append(col3Heading);
 
-// freelancers.forEach(freelancer => {
-  let names=[];
-  
+  let averagePriceSubtotal=0;
   for(i=0;i<freelancers.length;i++){
     console.log(freelancers[i].name);
 
-    names.push(freelancers[i].name);
+    averagePriceSubtotal=averagePriceSubtotal+freelancers[i].price;
 
     //create p inside columns
     const p1=document.createElement("p");
@@ -70,7 +72,9 @@ box1.appendChild(column3);
     column3.append(p3);
 
   };
-  console.log(names);
-// })
+
+  // had to update the myH3 message here, AFTER average price was determined.
+let averagePrice=(averagePriceSubtotal/freelancers.length);
+myH3.textContent="The average starting price is $" + averagePrice;
 
 
